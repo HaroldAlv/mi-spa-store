@@ -20,23 +20,6 @@ export class SalesPredictionComponent {
   constructor(private dataService: DataService,private router: Router) { }
   filteredData: any[] = []; 
   filterValue: string = '';
-  customers = [
-    {
-      CustomerName: 'Cliente 1',
-      LastOrderDate: '2023-10-01',
-      NextPredictedOrder: '2023-11-01'
-    },
-    {
-      CustomerName: 'Cliente 2',
-      LastOrderDate: '2023-09-15',
-      NextPredictedOrder: '2023-10-15'
-    },
-    {
-      CustomerName: 'Cliente 3',
-      LastOrderDate: '2023-08-20',
-      NextPredictedOrder: '2023-09-20'
-    }
-  ];
 
   ngOnInit(): void {
     this.getData();
@@ -44,7 +27,7 @@ export class SalesPredictionComponent {
       sessionStorage.setItem('reloaded2', 'true');
       location.reload();
     } else {
-      sessionStorage.removeItem('reloaded2'); // Limpia para futuras navegaciones
+      sessionStorage.removeItem('reloaded2'); 
     }
   }
 
@@ -78,7 +61,7 @@ export class SalesPredictionComponent {
     const filterText = this.filterValue.toLowerCase().trim();
   
     if (!filterText) {
-      this.filteredData = [...this.originalData]; // Restaurar si el input está vacío
+      this.filteredData = [...this.originalData]; 
     } else {
       this.filteredData = this.originalData.filter(customer => 
         customer.CustomerName.toLowerCase().includes(filterText)

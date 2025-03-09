@@ -27,7 +27,7 @@ export class OrdersComponent {
       sessionStorage.setItem('reloaded', 'true');
       location.reload();
     } else {
-      sessionStorage.removeItem('reloaded'); // Limpia para futuras navegaciones
+      sessionStorage.removeItem('reloaded'); 
     }
   }
 

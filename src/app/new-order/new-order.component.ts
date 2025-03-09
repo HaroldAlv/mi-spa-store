@@ -71,7 +71,7 @@ export class NewOrderComponent {
       sessionStorage.setItem('reloaded1', 'true');
       location.reload();
     } else {
-      sessionStorage.removeItem('reloaded1'); // Limpia para futuras navegaciones
+      sessionStorage.removeItem('reloaded1'); 
     }
   }
 
@@ -201,9 +201,9 @@ export interface Order {
   ShipName: string;
   ShipAddress: string;
   ShipCity: string;
-  OrderDate: string; // Formato: 'YYYYMMDD'
-  RequiredDate: string; // Formato: 'YYYYMMDD'
-  ShippedDate: string; // Formato: 'YYYYMMDD'
+  OrderDate: string; 
+  RequiredDate: string;
+  ShippedDate: string; 
   Freight: number;
   ShipCountry: string;
   ProductID: number;

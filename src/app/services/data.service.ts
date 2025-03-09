@@ -6,16 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  private apiUrl = 'https://localhost:44395/api/StoreSample'; // URL de tu API
+  private apiUrl = 'https://localhost:44395/api/StoreSample'; 
 
   constructor(private http: HttpClient) { }
 
-  // Método para obtener datos desde la API
   getData(endpoint: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${endpoint}`);
   }
-
-  // Método para enviar datos a la API
+  
   postData(endpoint: string, data: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/${endpoint}`, data);
   }

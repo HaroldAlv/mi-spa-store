@@ -28,17 +28,16 @@
           <td>
             <div class="footer-container" style="display: flex;gap: 15px;">
             <p-button
-              label="VIEW ORDERS"
               [raised]="true"
-              severity="danger"
-              (click)="viewDetails(customer)"
-            ></p-button>
+              (click)="viewDetails(customer)">
+              <span pButtonLabel style="color:red;">VIEW ORDERS</span>
+            </p-button>
             <p-button
-              label="NEW ORDER"
               [raised]="true"
-              severity="success"
-              (click)="predictNextOrder(customer)"
-            ></p-button>
+              (click)="predictNextOrder(customer)">
+              <span pButtonLabel style="color:green;">NEW ORDER</span>
+            </p-button>
+            
           </div>
           </td>
         </tr>
