@@ -49,7 +49,7 @@ export class SalesPredictionComponent {
   }
 
   viewDetails(customer: any) {
-    debugger;
+    
     this.router.navigate(['/orders', customer.CustomerName]);
   }
 

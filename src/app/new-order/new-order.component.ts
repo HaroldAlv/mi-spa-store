@@ -39,7 +39,7 @@ export class NewOrderComponent {
 
   constructor(private route: ActivatedRoute,private dataService: DataService,private router: Router, private fb: FormBuilder) 
   {
-    debugger;
+    
     this.orderForm = this.fb.group({
       employee: [null, Validators.required],
       shipper: [null, [Validators.required]], 
@@ -61,7 +61,7 @@ export class NewOrderComponent {
   protected custid: any;
 
   ngOnInit(): void {
-    debugger;
+    
     this.customer = this.route.snapshot.paramMap.get('customer') || '';
     this.getData();
     this.getEmployees();
@@ -78,7 +78,7 @@ export class NewOrderComponent {
   getData(): void {
     this.dataService.getData(`GetClientOrders/${this.customer}`).subscribe({
       next: (response) => {
-        debugger;
+        
         this.custid = response[0].custid;
       },
       error: (error) => {
@@ -91,7 +91,7 @@ export class NewOrderComponent {
   getEmployees(): void {
     this.dataService.getData(`GetEmployees`).subscribe({
       next: (response) => {
-        debugger;
+        
         this.employees = response.map((employee: any) => ({
           label: employee.FullName, 
           value: employee.empid, 
@@ -108,7 +108,7 @@ export class NewOrderComponent {
   getShippers(): void {
     this.dataService.getData(`GetShippers`).subscribe({
       next: (response) => {
-        debugger;
+        
         this.shippers = response.map((shipper: any) => ({
           label: shipper.companyname, 
           value: shipper.shipperid, 
@@ -124,14 +124,14 @@ export class NewOrderComponent {
   getProducts(): void {
     this.dataService.getData(`GetProducts`).subscribe({
       next: (response) => {
-        debugger;
+        
         this.products = response.map((products: any) => ({
           label: products.productname, 
           value: products.productid, 
         }));
       },
       error: (error) => {
-        debugger;
+        
         console.error('Error al obtener los datos:', error);
       }
     }
@@ -150,12 +150,12 @@ export class NewOrderComponent {
       console.log('Enviando:', JSON.stringify(orderData, null, 2));
       this.dataService.postData("AddNewOrder", orderData).subscribe({
         next: (response) => {
-          debugger;
+          
           alert("Se creo la Orden Exitosamente.");
           location.reload();
         },
         error: (error) => {
-          debugger;
+          
           alert("Ocurrió un error al crear la orden.");
         }
       })
@@ -184,14 +184,6 @@ export class NewOrderComponent {
         Discount: formValue.discount,
       };
     }
-  
-
-  formatDate(date: Date): string {
-    const year = date.getFullYear();
-    const month = ('0' + (date.getMonth() + 1)).slice(-2);
-    const day = ('0' + date.getDate()).slice(-2);
-    return `${year}${month}${day}`;
-  }
 }
 
 export interface Order {

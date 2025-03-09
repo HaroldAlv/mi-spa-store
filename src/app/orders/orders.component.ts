@@ -34,7 +34,7 @@ export class OrdersComponent {
   getData(): void {
     this.dataService.getData(`GetClientOrders/${this.customer}`).subscribe({
       next: (response) => {
-        debugger;
+        
         this.orders  = response;
       },
       error: (error) => {
