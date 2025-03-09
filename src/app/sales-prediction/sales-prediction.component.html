@@ -1,0 +1,47 @@
+<p-card header="Customers" styleClass="p-shadow-5">
+  <div class="filter-container" style="width: 82%;">
+    <input type="text" pInputText [(ngModel)]="filterValue" (input)="filterCustomers()" placeholder="Buscar por Customer Name" style="width: 20%;">
+    <i class="pi pi-search search-icon"></i>
+  </div>
+    <p-table
+      [value]="filteredData"
+      [paginator]="true"
+      [rows]="8"
+      [stripedRows]="true"
+      [sortField]="'CustomerName'"
+      [sortOrder]="1"
+      [rowsPerPageOptions]="[8, 16, 24]"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="CustomerName">Customer Name <p-sortIcon field="CustomerName"></p-sortIcon></th>
+          <th pSortableColumn="LastOrderDate">Last Order Date <p-sortIcon field="LastOrderDate"></p-sortIcon></th>
+          <th pSortableColumn="NextPredictedOrder"> Next Predicted Order <p-sortIcon field="NextPredictedOrder"></p-sortIcon></th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-customer>
+        <tr>
+          <td>{{ customer.CustomerName }}</td>
+          <td>{{ customer.LastOrderDate }}</td>
+          <td>{{ customer.NextPredictedOrder }}</td>
+          <td>
+            <div class="footer-container" style="display: flex;gap: 15px;">
+            <p-button
+              label="VIEW ORDERS"
+              [raised]="true"
+              severity="danger"
+              (click)="viewDetails(customer)"
+            ></p-button>
+            <p-button
+              label="NEW ORDER"
+              [raised]="true"
+              severity="success"
+              (click)="predictNextOrder(customer)"
+            ></p-button>
+          </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+</p-card>

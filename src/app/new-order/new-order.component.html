@@ -1,0 +1,166 @@
+<div style="margin-left: 10%; margin-right: 10%; margin-top: 5%;">
+    <div class="table-header">
+        <h2>{{customer}} - New Order</h2>
+    </div>
+    <p-card header="Order">
+    <form [formGroup]="orderForm" (ngSubmit)="submitForm()">
+    <div style="margin-left: -10%;margin-right: 0%;">
+      <div class="centered-horizontal" style="margin-bottom: 2%;">
+        <div style="display: flex;gap: 15px;width: 118%;">
+          <p-dropdown
+            id="employee"
+            [options]="employees"
+            formControlName="employee"
+            placeholder="Employee*"
+            [ngStyle]="{'width': '50%'}"
+          ></p-dropdown>
+          <p-dropdown
+            id="shipper"
+            [options]="shippers"
+            formControlName="shipper"
+            placeholder="Shipper*"
+            [ngStyle]="{'width': '50%'}"
+          ></p-dropdown>
+        </div>
+      </div>
+  
+      <div class="centered-horizontal" style="margin-bottom: 2%;">
+        <div style="display: flex;gap: 15px;width: 118%;">
+          <input
+            id="shipName"
+            type="text"
+            pInputText
+            formControlName="shipname"
+            [ngStyle]="{'width': '100%'}"
+            placeholder="Ship Name*"
+          />
+        </div>
+      </div>
+  
+      <div div class="centered-horizontal" style="margin-bottom: 2%;">
+        <div style="display: flex;gap: 15px;width: 118%;">
+          <input
+            id="shipAddress"
+            type="text"
+            pInputText
+            [ngStyle]="{'width': '33%'}"
+            formControlName="shipaddress"
+            placeholder="Ship Address*"
+          />
+          <input
+            id="shipCity"
+            type="text"
+            pInputText
+            [ngStyle]="{'width': '33%'}"
+            formControlName="shipcity"
+            placeholder="Ship City*"
+          />
+          <input
+            id="shipCountry"
+            type="text"
+            pInputText
+            [ngStyle]="{'width': '33%'}"
+            formControlName="shipcountry"
+            placeholder="Ship Country*"
+          />
+        </div>
+      </div>
+  
+      <div class="centered-horizontal" style="margin-bottom: 2%;">
+        <div style="display: flex;gap: 15px;width: 118%;">
+          <p-calendar
+            id="orderDate"
+            formControlName="orderdate"
+            placeholder="Order Date*"
+            [showIcon]="true"
+            [ngStyle]="{'width': '33%'}"
+          ></p-calendar>
+          <p-calendar
+            id="requiredDate"
+            formControlName="requireddate"
+            placeholder="Required Date*"
+            [showIcon]="true"
+            [ngStyle]="{'width': '33%'}"
+          ></p-calendar>
+          <p-calendar
+            id="shippedDate"
+            formControlName="shippeddate"
+            placeholder="Shipped Date*"
+            [showIcon]="true"
+            [ngStyle]="{'width': '33%'}"
+          ></p-calendar>
+        </div>
+      </div>
+  
+      <div class="centered-horizontal" style="margin-bottom: 2%;">
+        <div style="display: flex;gap: 15px;width: 118%;">
+          <input
+            id="freight"
+            type="number"
+            pInputText
+            formControlName="freight"
+            [ngStyle]="{'width': '100%'}"
+            placeholder="$ Freight*"
+          />
+        </div>
+      </div>
+    </div>
+    <p-divider />
+    <h3>
+        Order Details:
+    </h3>
+    <div style="margin-left: -10%;margin-right: 0%;">
+    <div class="centered-horizontal" style="margin-bottom: 2%;">
+        <div style="display: flex;gap: 15px;width: 118%;">
+          <p-dropdown
+            id="products"
+            [options]="products"
+            formControlName="productid"
+            placeholder="Product*"
+            [ngStyle]="{'width': '100%'}"
+          ></p-dropdown>
+        </div>
+    </div>
+    <div class="centered-horizontal" style="margin-bottom: 2%;">
+        <div style="display: flex;gap: 15px;width: 118%;">
+            <input
+            id="unitprice"
+            type="number"
+            pInputText
+            [ngStyle]="{'width': '33%'}"
+            formControlName="unitprice"
+            placeholder="$ Unit Price*"/>
+          <input
+            id="qty"
+            type="number"
+            pInputText
+            [ngStyle]="{'width': '33%'}"
+            formControlName="qty"
+            placeholder="Quantity*"/>
+          <input
+            id="discount"
+            type="number"
+            pInputText
+            [ngStyle]="{'width': '33%'}"
+            formControlName="discount"
+            placeholder="Discount*"/>
+        </div>
+      </div>
+    </div>
+    </form>
+    <div class="footer-container" style="display: flex;gap: 15px;">
+        <p-button 
+          [ngStyle]="{'color': 'red', 'font-weight': 'bold', 'font-size': '16px'}"
+          severity="secondary"
+          (click)="closeOrder()">
+          <span pButtonLabel style="color:green;">Close</span>
+        </p-button>
+        <p-button 
+          [ngStyle]="{'color': 'red', 'font-weight': 'bold', 'font-size': '16px'}"
+          severity="secondary"
+          (click)="submitForm()">
+          <span pButtonLabel style="color:green;">Save</span>
+        </p-button>
+    </div>
+  </p-card>
+</div>
